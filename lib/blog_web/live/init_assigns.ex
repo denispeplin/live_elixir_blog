@@ -14,4 +14,6 @@ defmodule BlogWeb.InitAssigns do
       {:halt, redirect(socket, to: "/")}
     end
   end
+
+  def on_mount(:user, _params, _session, socket), do: {:halt, redirect(socket, to: "/")}
 end
