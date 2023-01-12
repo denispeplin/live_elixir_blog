@@ -41,7 +41,7 @@ defmodule BlogWeb.PostLive.FormComponent do
   end
 
   defp save_post(socket, :new, post_params) do
-    case Content.create_post(post_params) do
+    case Content.create_post(socket.assigns.current_user, post_params) do
       {:ok, _post} ->
         {:noreply,
          socket

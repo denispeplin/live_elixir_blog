@@ -49,8 +49,8 @@ defmodule Blog.Content do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_post(attrs \\ %{}) do
-    %Post{}
+  def create_post(current_user, attrs \\ %{}) do
+    %Post{user_id: current_user.id}
     |> Post.changeset(attrs)
     |> Repo.insert()
   end
